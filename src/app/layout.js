@@ -1,6 +1,10 @@
 import { Inter } from "next/font/google";
 import { cn } from "@/lib/utils";
 import "./globals.css";
+import Navbar from "@/components/Navbar";
+import Setting from "@/components/Setting";
+import Sidebar from "@/components/Sidebar";
+import Categories from "@/components/Categories";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,7 +17,22 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={cn("bg-[#F7F8FA]", inter.className)}>
-        <main className="p-10 h-screen">{children}</main>
+        <main className="p-10 h-screen">
+          <div className="h-full flex gap-8 items-start">
+            <Sidebar />
+            <div className="flex-1 h-full">
+              <Navbar />
+
+              <div className="h-[calc(100%-80px)] flex gap-8">
+                <div className="w-4/5 flex gap-8 h-full">
+                  <Categories />
+                  {children}
+                </div>
+                <Setting />
+              </div>
+            </div>
+          </div>
+        </main>
       </body>
     </html>
   );

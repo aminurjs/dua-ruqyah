@@ -21,7 +21,9 @@ module.exports = {
         poppins: ["Poppins", "sans-serif"],
       },
       colors: {
-        "dua-bg": "#F7F8FA",
+        "dua-bg": "#f7f8fa",
+        "icon-bg": "#e8f0f5",
+        "gray-1": "#868686",
         dark: "#393939",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

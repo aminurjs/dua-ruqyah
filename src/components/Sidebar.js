@@ -18,7 +18,7 @@ const Sidebar = () => {
       </div>
       <div className="flex gap-6 items-center flex-col">
         {icons.map((icon) => (
-          <Link className="bg-gray-200 rounded-full p-2" href="#" key={icon}>
+          <Link className="bg-icon-bg rounded-full p-2" href="#" key={icon}>
             <Image src={`./icons/${icon}`} alt={icon} width={20} height={20} />
           </Link>
         ))}
