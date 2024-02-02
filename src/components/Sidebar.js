@@ -12,7 +12,7 @@ const icons = [
 
 const Sidebar = () => {
   return (
-    <div className="flex items-center justify-between flex-col h-full max-h-[930px] bg-white rounded-3xl px-3.5 py-5 overflow-y-auto">
+    <div className="flex mb-5 items-center justify-between flex-col h-[calc(100%-20px)] max-h-[930px] bg-white rounded-3xl px-3.5 py-5 overflow-y-auto">
       <div>
         <Image src="/icons/logo.png" alt="logo" width={73} height={73} />
       </div>

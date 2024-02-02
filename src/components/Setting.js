@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-const settings = [
+export const settings = [
   { id: 1, icon: "./icons/language.svg", name: "Language Setting" },
   { id: 2, icon: "./icons/general.svg", name: "General Setting" },
   { id: 3, icon: "./icons/54-menu-2.svg", name: "Font Setting" },
@@ -8,7 +8,7 @@ const settings = [
 ];
 const Setting = () => {
   return (
-    <div className="w-1/5 bg-white max-h-[930px] rounded-3xl h-full px-4 pt-6 pb-5 overflow-y-auto  overflow-x-hidden">
+    <div className="hidden 2xl:block w-1/5 bg-white max-h-[930px] rounded-3xl h-[calc(100%-20px)] px-4 pt-6 pb-5  overflow-y-auto">
       <h2 className="text-xl font-bold text-center text-dark mb-6">Setting</h2>
       <div className="space-y-3">
         {settings.map((setting) => (

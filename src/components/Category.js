@@ -1,13 +1,27 @@
-import Subcategory from "@/app/[cat_name]/page";
+"use client";
+
 import Image from "next/image";
+import SubCat from "./SubCat";
+import { useState } from "react";
+import { dataFetching } from "@/lib/utils";
 import Link from "next/link";
 
-const Category = ({ category }) => {
+const Category = ({ category, subcategories, subCat }) => {
+  const [duas, setDuas] = useState([]);
+  const duasCat = async (id) => {
+    const data = await dataFetching(
+      `http://localhost:5000/duas?subcat_id=${id}`
+    );
+    setDuas(data);
+  };
   return (
     <>
       <Link
-        href={`/${category.cat_name_en.toLowerCase().replace(/ /g, "-")}`}
-        className="flex p-3 gap-2.5 cursor-pointer text-black bg-white hover:bg-icon-bg transition-colors duration-300 rounded-xl"
+        href={`/${category.cat_name_en.toLowerCase().replace(/ /gi, "-")}?cat=${
+          category.cat_id
+        }`}
+        onClick={() => subCat(category.cat_id)}
+        className="flex p-3 gap-2.5 cursor-pointer focus:bg-icon-bg  bg-white hover:bg-icon-bg transition-colors duration-300 rounded-xl"
       >
         <span className="block p-2.5 bg-icon-bg rounded-lg">
           <Image
@@ -28,6 +42,23 @@ const Category = ({ category }) => {
           <p className="text-gray-1 text-sm mt-1">Duas</p>
         </div>
       </Link>
+
+      {subcategories.length > 0 && (
+        <div>
+          {subcategories[0].cat_id === category.cat_id && (
+            <div className="border-l-2 ml-10 my-2 py-1 border-dotted border-primary">
+              {subcategories?.map((subcategory) => (
+                <SubCat
+                  key={subcategory.id}
+                  subCat={subcategory}
+                  duasCat={duasCat}
+                  duas={duas}
+                />
+              ))}
+            </div>
+          )}
+        </div>
+      )}
     </>
   );
 };

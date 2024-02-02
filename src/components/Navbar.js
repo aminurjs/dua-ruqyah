@@ -1,9 +1,10 @@
 import { ChevronDown } from "lucide-react";
 import Image from "next/image";
+import SettingSlide from "./SettingSlide";
 
 const Navbar = () => {
   return (
-    <nav className="flex justify-between items-center gap-7 pb-6">
+    <nav className="flex justify-between items-center gap-7 pb-4">
       <div className="w-4/5 flex justify-between items-center">
         <div>
           <h1 className="text-dark text-2xl font-semibold font-poppins">
@@ -38,6 +39,7 @@ const Navbar = () => {
           />
           <ChevronDown className="h-5 w-5 text-dark" />
         </button>
+        <SettingSlide />
       </div>
     </nav>
   );

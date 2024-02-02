@@ -16,21 +16,24 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={cn("bg-[#F7F8FA]", inter.className)}>
-        <main className="p-10 h-screen">
-          <div className="h-full flex gap-8 items-start">
-            <Sidebar />
+      <body className={cn("bg-icon-bg", inter.className)}>
+        <main className="pt-5 px-10 h-screen">
+          <div className="h-full flex gap-8 items-start flex-col xl:flex-row">
+            <div className="h-full hidden xl:block">
+              <Sidebar />
+            </div>
             <div className="flex-1 h-full">
               <Navbar />
 
               <div className="h-[calc(100%-80px)] flex gap-8">
-                <div className="w-4/5 flex gap-8 h-full">
+                <div className="2xl:w-4/5 flex gap-8 h-full">
                   <Categories />
-                  {children}
+                  <div className="w-2/3">{children}</div>
                 </div>
                 <Setting />
               </div>
             </div>
+            <div className="w-full block xl:hidden">{/* <Sidebar /> */}</div>
           </div>
         </main>
       </body>
