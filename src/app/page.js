@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 
 const page = () => {
-  redirect("/categories");
+  redirect("/home");
 
   return <div></div>;
 };

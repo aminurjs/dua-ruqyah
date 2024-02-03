@@ -12,13 +12,13 @@ export const icons = [
 
 const Sidebar = () => {
   return (
-    <div className="flex mb-5 items-center justify-between flex-col h-[calc(100%-20px)] max-h-[930px] bg-white rounded-3xl px-3.5 py-5 overflow-y-auto">
+    <div className="flex mb-5 items-center justify-between flex-col h-[calc(100%-20px)] max-h-[930px] bg-white rounded-3xl p-5 overflow-y-auto">
       <div>
         <Image
-          src="	https://duaruqyah.com/assets/dua-logo.svg"
+          src="https://duaruqyah.com/assets/dua-logo.svg"
           alt="logo"
-          width={73}
-          height={73}
+          width={55}
+          height={55}
         />
       </div>
       <div className="flex gap-6 items-center flex-col">
@@ -33,7 +33,7 @@ const Sidebar = () => {
           </Link>
         ))}
       </div>
-      <div className="bg-primary p-4 rounded-lg">
+      <div className="bg-primary p-3 rounded-lg">
         <Image
           src="./icons/bxs_donate-heart.svg"
           alt="bxs_donate-heart"

@@ -5,6 +5,7 @@ import Image from "next/image";
 import Category from "./Category";
 import { useEffect, useState } from "react";
 import "./categories.css";
+import CatLoading from "./CatLoading";
 
 const Categories = () => {
   const [categories, setCategories] = useState([]);
@@ -12,16 +13,14 @@ const Categories = () => {
   const [searchCategories, setSearchCategories] = useState(null);
   useEffect(() => {
     const data = async () => {
-      const res = await dataFetching(
-        "https://duaruqyah-server.vercel.app/categories"
-      );
+      const res = await dataFetching("http://localhost:5000/categories");
       setCategories(res);
     };
     data();
   }, []);
   const subCat = async (id) => {
     const data = await dataFetching(
-      `https://duaruqyah-server.vercel.app/subcategories?cat_id=${id}`
+      `http://localhost:5000/subcategories?cat_id=${id}`
     );
     setSubcategories(data);
   };
@@ -56,26 +55,52 @@ const Categories = () => {
       </div>
       <div className="space-y-3 px-3 h-[calc(100%-153px)] overflow-y-auto">
         {searchCategories ? (
-          <>
-            {searchCategories.map((category) => (
-              <Category
-                key={category.id}
-                category={category}
-                subCat={subCat}
-                subcategories={subcategories}
-              />
-            ))}
-          </>
+          <div>
+            <p className="text-title font-medium text-sm text-start mb-5">
+              Search Results:
+            </p>
+            {searchCategories?.length === 0 ? (
+              <div className="mt-4">
+                <div className="flex flex-col gap-y-10 items-center justify-center h-[50vh]">
+                  <Image
+                    className="w-1/3"
+                    src="	https://duaruqyah.com/assets/no-data-found.svg"
+                    alt="no-data-found"
+                    width={220}
+                    height={140}
+                  />
+                  <p className="text-xl leading-4">No Result Found</p>
+                </div>
+              </div>
+            ) : (
+              <>
+                {searchCategories.map((category) => (
+                  <Category
+                    key={category.id}
+                    category={category}
+                    subCat={subCat}
+                    subcategories={subcategories}
+                  />
+                ))}
+              </>
+            )}
+          </div>
         ) : (
           <>
-            {categories.map((category) => (
-              <Category
-                key={category.id}
-                category={category}
-                subCat={subCat}
-                subcategories={subcategories}
-              />
-            ))}
+            {categories.length === 0 ? (
+              <CatLoading />
+            ) : (
+              <>
+                {categories.map((category) => (
+                  <Category
+                    key={category.id}
+                    category={category}
+                    subCat={subCat}
+                    subcategories={subcategories}
+                  />
+                ))}
+              </>
+            )}
           </>
         )}
       </div>

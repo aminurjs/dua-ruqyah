@@ -10,7 +10,7 @@ const Category = ({ category, subcategories, subCat }) => {
   const [duas, setDuas] = useState([]);
   const duasCat = async (id) => {
     const data = await dataFetching(
-      `https://duaruqyah-server.vercel.app/duas?subcat_id=${id}`
+      `http://localhost:5000/duas?subcat_id=${id}`
     );
     setDuas(data);
   };

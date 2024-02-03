@@ -17,6 +17,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <link
+          rel="icon"
+          href="https://duaruqyah.com/assets/dua-logo.svg"
+          sizes="any"
+        />
+      </head>
       <body className={cn("bg-icon-bg", inter.className)}>
         <main className="relative pt-5 px-10 h-screen">
           <div className="h-full flex gap-8 items-start flex-col xl:flex-row">
