@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Setting from "@/components/Setting";
 import Sidebar from "@/components/Sidebar";
 import Categories from "@/components/Categories";
+import TabMenuB from "@/components/TabMenuB";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,7 +18,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={cn("bg-icon-bg", inter.className)}>
-        <main className="pt-5 px-10 h-screen">
+        <main className="relative pt-5 px-10 h-screen">
           <div className="h-full flex gap-8 items-start flex-col xl:flex-row">
             <div className="h-full hidden xl:block">
               <Sidebar />
@@ -33,7 +34,9 @@ export default function RootLayout({ children }) {
                 <Setting />
               </div>
             </div>
-            <div className="w-full block xl:hidden">{/* <Sidebar /> */}</div>
+          </div>
+          <div className="absolute left-0 bottom-0 w-full block xl:hidden bg-primary bg-white rounded-t-3xl h-20">
+            <TabMenuB />
           </div>
         </main>
       </body>

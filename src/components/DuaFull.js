@@ -4,8 +4,9 @@ import Audio from "./Audio";
 
 const DuaFull = async ({ subcatId }) => {
   const data = await dataFetching(
-    `http://localhost:5000/duas?subcat_id=${subcatId}`
+    `https://duaruqyah-server.vercel.app/duas?subcat_id=${subcatId}`
   );
+  console.log(data);
   return (
     <>
       {data.map((item) => (
@@ -25,6 +26,11 @@ const DuaFull = async ({ subcatId }) => {
           {item.clean_arabic && (
             <p className="text-right text-2xl leading-loose to-black mb-5">
               {item.clean_arabic}
+            </p>
+          )}
+          {item.dua_arabic && (
+            <p className="text-right text-2xl leading-loose to-black mb-5">
+              {item.dua_arabic}
             </p>
           )}
           {item.transliteration_en && (

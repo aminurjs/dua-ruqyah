@@ -12,14 +12,16 @@ const Categories = () => {
   const [searchCategories, setSearchCategories] = useState(null);
   useEffect(() => {
     const data = async () => {
-      const res = await dataFetching("http://localhost:5000/categories");
+      const res = await dataFetching(
+        "https://duaruqyah-server.vercel.app/categories"
+      );
       setCategories(res);
     };
     data();
   }, []);
   const subCat = async (id) => {
     const data = await dataFetching(
-      `http://localhost:5000/subcategories?cat_id=${id}`
+      `https://duaruqyah-server.vercel.app/subcategories?cat_id=${id}`
     );
     setSubcategories(data);
   };
@@ -31,8 +33,8 @@ const Categories = () => {
     setSearchCategories(searched);
   };
   return (
-    <div className="rounded-lg bg-white w-1/3 mb-20 xl:mb-3 ">
-      <div className="bg-primary rounded-t-lg p-4 ">
+    <div className="lg:rounded-lg bg-white lg:w-1/3 mb-20 xl:mb-3 ">
+      <div className="bg-primary lg:rounded-t-lg p-4 ">
         <p className="text-white text-center">Categories</p>
       </div>
       <div className="relative mx-3 py-4">

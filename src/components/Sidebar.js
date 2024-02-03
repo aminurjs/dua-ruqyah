@@ -1,25 +1,35 @@
 import Image from "next/image";
 import Link from "next/link";
-const icons = [
-  "home 1.svg",
-  "54-menu-2.svg",
-  "memorize 1.svg",
-  "3-keep-minus.svg",
-  "books 1.svg",
-  "dua-info 1.svg",
-  "ruqyah 1.svg",
+export const icons = [
+  "home",
+  "alldua",
+  "memorize",
+  "bookmark",
+  "ruqyah",
+  "dua-info",
+  "books",
 ];
 
 const Sidebar = () => {
   return (
     <div className="flex mb-5 items-center justify-between flex-col h-[calc(100%-20px)] max-h-[930px] bg-white rounded-3xl px-3.5 py-5 overflow-y-auto">
       <div>
-        <Image src="/icons/logo.png" alt="logo" width={73} height={73} />
+        <Image
+          src="	https://duaruqyah.com/assets/dua-logo.svg"
+          alt="logo"
+          width={73}
+          height={73}
+        />
       </div>
       <div className="flex gap-6 items-center flex-col">
         {icons.map((icon) => (
           <Link className="bg-icon-bg rounded-full p-2" href="#" key={icon}>
-            <Image src={`./icons/${icon}`} alt={icon} width={20} height={20} />
+            <Image
+              src={`https://duaruqyah.com/assets/nav/${icon}.svg`}
+              alt={icon}
+              width={20}
+              height={20}
+            />
           </Link>
         ))}
       </div>
