@@ -3,7 +3,9 @@ import { dataFetching } from "@/lib/utils";
 
 const Duas = async ({ params, searchParams }) => {
   const data = await dataFetching(
-    `http://localhost:5000/subcategories?cat_id=${searchParams.cat || 1}`
+    `https://duaruqyah-server.vercel.app/subcategories?cat_id=${
+      searchParams.cat || 1
+    }`
   );
   return (
     <div className="h-[calc(100vh-160px)] xl:h-[calc(100vh-95px)] overflow-y-auto w-full">

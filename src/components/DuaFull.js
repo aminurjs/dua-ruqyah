@@ -4,7 +4,7 @@ import Audio from "./Audio";
 
 const DuaFull = async ({ subcatId }) => {
   const data = await dataFetching(
-    `http://localhost:5000/duas?subcat_id=${subcatId}`
+    `https://duaruqyah-server.vercel.app/duas?subcat_id=${subcatId}`
   );
   return (
     <>

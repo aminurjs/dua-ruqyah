@@ -1,11 +1,68 @@
 "use client";
 
+import Image from "next/image";
+import { useRef, useState } from "react";
+import "./audio.css";
+
 const Audio = ({ audio }) => {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
+  const audioRef = useRef(null);
+
+  const handlePlayPause = () => {
+    if (isPlaying) {
+      audioRef.current.pause();
+    } else {
+      audioRef.current.play();
+    }
+    setIsPlaying(!isPlaying);
+  };
+
+  const handleTimeUpdate = () => {
+    setCurrentTime(audioRef.current.currentTime);
+  };
+
+  const handleDuration = () => {
+    setDuration(audioRef.current.duration);
+  };
+
+  const handleRange = (e) => {
+    const newTime = e.target.value;
+    audioRef.current.currentTime = newTime;
+    setCurrentTime(newTime);
+  };
   return (
     <div>
-      <audio controls>
-        <source src={audio} />
-      </audio>
+      <audio
+        ref={audioRef}
+        src={audio}
+        onTimeUpdate={handleTimeUpdate}
+        onLoadedMetadata={handleDuration}
+      />
+      <div className="flex gap-3 items-center">
+        <button onClick={handlePlayPause}>
+          <Image
+            src={
+              isPlaying
+                ? "https://duaruqyah.com/assets/others/pause.svg"
+                : "https://duaruqyah.com/assets/others/audiobtn.svg"
+            }
+            alt="audio btn"
+            width={45}
+            height={45}
+          />
+        </button>
+        {isPlaying && (
+          <input
+            className="h-2 "
+            type="range"
+            value={currentTime}
+            max={duration}
+            onChange={handleRange}
+          />
+        )}
+      </div>
     </div>
   );
 };
