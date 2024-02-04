@@ -34,7 +34,7 @@ export default function RootLayout({ children }) {
               <Navbar />
 
               <div className="h-[calc(100%-80px)] flex gap-8">
-                <div className="2xl:w-4/5 flex gap-8 h-full">
+                <div className="w-full 2xl:w-4/5 flex gap-8 h-full">
                   <Categories />
                   <div className="w-2/3">{children}</div>
                 </div>

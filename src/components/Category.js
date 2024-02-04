@@ -15,7 +15,7 @@ const Category = ({ category, subcategories, subCat }) => {
     setDuas(data);
   };
   return (
-    <>
+    <div>
       <Link
         href={`/${category.cat_name_en.toLowerCase().replace(/ /gi, "-")}?cat=${
           category.cat_id
@@ -59,7 +59,7 @@ const Category = ({ category, subcategories, subCat }) => {
           )}
         </div>
       )}
-    </>
+    </div>
   );
 };
 

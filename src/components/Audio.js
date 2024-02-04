@@ -54,13 +54,18 @@ const Audio = ({ audio }) => {
           />
         </button>
         {isPlaying && (
-          <input
-            className="h-2 "
-            type="range"
-            value={currentTime}
-            max={duration}
-            onChange={handleRange}
-          />
+          <div className="w-1/3 h-1.5 relative flex items-center">
+            <input
+              type="range"
+              value={currentTime}
+              max={duration}
+              onChange={handleRange}
+            />
+            <span
+              style={{ width: `${(currentTime * 100) / duration}%` }}
+              className="h-1.5 bg-title absolute left-0 top-0 rounded"
+            />
+          </div>
         )}
       </div>
     </div>
