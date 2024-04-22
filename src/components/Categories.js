@@ -34,7 +34,7 @@ const Categories = () => {
     setSearchCategories(searched);
   };
   return (
-    <div className="lg:rounded-lg bg-white lg:w-1/3 mb-20 xl:mb-3 ">
+    <div className="hidden lg:block lg:rounded-lg bg-white lg:w-1/3 mb-20 xl:mb-3 ">
       <div className="bg-primary lg:rounded-t-lg p-4 ">
         <p className="text-white text-center">Categories</p>
       </div>
@@ -78,7 +78,7 @@ const Categories = () => {
               <>
                 {searchCategories.map((category) => (
                   <Category
-                    key={category.id}
+                    key={category.cat_id}
                     category={category}
                     subCat={subCat}
                     subcategories={subcategories}
@@ -95,7 +95,7 @@ const Categories = () => {
               <>
                 {categories.map((category) => (
                   <Category
-                    key={category.id}
+                    key={category.cat_id}
                     category={category}
                     subCat={subCat}
                     subcategories={subcategories}

@@ -10,7 +10,10 @@ const DuaFull = async ({ subcatId }) => {
     <>
       {data.map((item) => (
         <div className="rounded-xl bg-white p-6 my-5" key={item.id}>
-          <div className="flex items-center gap-3">
+          <div
+            id={`section-${item.subcat_id}-dua-${item.dua_id}`}
+            className="flex items-center gap-3"
+          >
             <Image
               src="https://duaruqyah.com/assets/duacard.svg"
               alt="DuaCard"

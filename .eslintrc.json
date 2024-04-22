@@ -1,3 +1,10 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": "next/core-web-vitals",
+  "rules": {
+    "no-unused-vars": [
+      "warn",
+      { "vars": "local", "args": "after-used", "ignoreRestSiblings": false }
+    ],
+    "no-undef": "error"
+  }
 }
