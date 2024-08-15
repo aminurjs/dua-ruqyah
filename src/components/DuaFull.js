@@ -1,17 +1,26 @@
 import { dataFetching } from "@/lib/utils";
 import Image from "next/image";
 import Audio from "./Audio";
+import { connectToDatabase } from "@/lib/mongodb";
+
+async function fetchDuas(subcatId) {
+  const { db } = await connectToDatabase();
+  const duasCollection = db.collection("dua");
+  const duas = await duasCollection.find({ subcat_id: subcatId }).toArray();
+  return duas;
+}
 
 const DuaFull = async ({ subcatId }) => {
-  const data = await dataFetching(`https://duaruqyah-server.vercel.app/duas?subcat_id=${subcatId}`);
+  const data = await fetchDuas(subcatId);
   return (
     <>
       {data.map((item) => (
-        <div className="rounded-xl bg-white p-6 my-5" key={item.id}>
-          <div
-            id={`section-${item.subcat_id}-dua-${item.dua_id}`}
-            className="flex items-center gap-3"
-          >
+        <div
+          id={`section-${item.subcat_id}-dua-${item.dua_id}`}
+          className="rounded-xl bg-white p-6 my-5"
+          key={item.id}
+        >
+          <div className="flex items-center gap-3">
             <Image
               src="https://duaruqyah.com/assets/duacard.svg"
               alt="DuaCard"

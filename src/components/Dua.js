@@ -4,7 +4,7 @@ import React from "react";
 const Dua = ({ dua, cat_name_en }) => {
   return (
     <a
-      href={`/${cat_name_en.toLowerCase().replace(/ /gi, "-")}/${dua.cat_id}#section-${
+      href={`/dua/${cat_name_en.toLowerCase().replace(/ /gi, "-")}/${dua.cat_id}#section-${
         dua.subcat_id
       }-dua-${dua.dua_id}`}
       className="flex items-center gap-2 mt-2"

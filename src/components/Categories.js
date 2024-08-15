@@ -13,15 +13,13 @@ const Categories = () => {
   const [searchCategories, setSearchCategories] = useState(null);
   useEffect(() => {
     const data = async () => {
-      const res = await dataFetching("https://duaruqyah-server.vercel.app/categories");
+      const res = await dataFetching("/api/categories");
       setCategories(res);
     };
     data();
   }, []);
   const subCat = async (id) => {
-    const data = await dataFetching(
-      `https://duaruqyah-server.vercel.app/subcategories?cat_id=${id}`
-    );
+    const data = await dataFetching(`/api/subcategories?cat_id=${id}`);
     setSubcategories(data);
   };
   const handleSearch = (e) => {

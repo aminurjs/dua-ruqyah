@@ -3,7 +3,7 @@
 import { dataFetching } from "@/lib/utils";
 import Image from "next/image";
 import Category from "./Category";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./categories.css";
 import CatLoading from "./CatLoading";
 
@@ -14,6 +14,14 @@ const CatSlide = () => {
   const [categories, setCategories] = useState([]);
   const [subcategories, setSubcategories] = useState([]);
   const [searchCategories, setSearchCategories] = useState(null);
+  const [isReadOnly, setIsReadOnly] = useState(true);
+
+  const handleClick = () => {
+    setIsReadOnly(false);
+  };
+  const handleBlur = () => {
+    setIsReadOnly(true);
+  };
   useEffect(() => {
     const data = async () => {
       const res = await dataFetching("https://duaruqyah-server.vercel.app/categories");
@@ -45,10 +53,12 @@ const CatSlide = () => {
             <p className="text-white text-center">Categories</p>
           </div>
         </SheetHeader>
-        {/* <div className="relative mx-3 py-4">
+        <div className="relative mx-3 py-4">
           <input
+            readOnly={isReadOnly}
+            onClick={handleClick}
+            onBlur={handleBlur}
             type="text"
-            autoFocus={false}
             name="search"
             onChange={handleSearch}
             className="placeholder:text-[#868686] py-3 pr-4 pl-12 bg-white w-full focus:outline-none focus:border-primary border-2 border-gray-300 rounded-lg"
@@ -57,7 +67,7 @@ const CatSlide = () => {
           <span className="p-2.5  absolute left-1 top-1/2 -translate-y-1/2">
             <Image src="/icons/search.svg" alt="search" width={24} height={24} />
           </span>
-        </div> */}
+        </div>
         <div className="space-y-3 px-3 h-[calc(100%-153px)] overflow-y-auto">
           {searchCategories ? (
             <div>

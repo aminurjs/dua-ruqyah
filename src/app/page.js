@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 
 const page = () => {
-  return redirect("/dua's-importance/1");
+  return redirect("/dua/dua's-importance/1");
 };
 
 export default page;

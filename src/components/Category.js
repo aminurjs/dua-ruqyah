@@ -9,10 +9,9 @@ import Link from "next/link";
 const Category = ({ category, subcategories, subCat }) => {
   const [duas, setDuas] = useState([]);
   const catRef = useRef(null);
+
   const duasCat = async (id) => {
-    const data = await dataFetching(
-      `https://duaruqyah-server.vercel.app/duas?subcat_id=${id}`
-    );
+    const data = await dataFetching(`/api/duas?subcat_id=${id}`);
     setDuas(data);
   };
   const scrollToTop = async () => {
@@ -25,9 +24,7 @@ const Category = ({ category, subcategories, subCat }) => {
       <div ref={catRef}>
         <Link
           key={category.cat_id}
-          href={`/${category.cat_name_en.toLowerCase().replace(/ /gi, "-")}/${
-            category.cat_id
-          }`}
+          href={`/dua/${category.cat_name_en.toLowerCase().replace(/ /gi, "-")}/${category.cat_id}`}
           onClick={() => {
             subCat(category.cat_id);
             scrollToTop();
@@ -43,12 +40,8 @@ const Category = ({ category, subcategories, subCat }) => {
               />
             </span>
             <div className="flex-1">
-              <h2 className="text-dark font-semibold">
-                {category.cat_name_en}
-              </h2>
-              <p className="text-gray-1 text-sm mt-1">
-                Subcategory: {category.no_of_subcat}
-              </p>
+              <h2 className="text-dark font-semibold">{category.cat_name_en}</h2>
+              <p className="text-gray-1 text-sm mt-1">Subcategory: {category.no_of_subcat}</p>
             </div>
             <div className="text-center">
               <h2 className="text-dark font-semibold">{category.no_of_dua}</h2>
