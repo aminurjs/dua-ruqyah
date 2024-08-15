@@ -13,9 +13,7 @@ const Categories = () => {
   const [searchCategories, setSearchCategories] = useState(null);
   useEffect(() => {
     const data = async () => {
-      const res = await dataFetching(
-        "https://duaruqyah-server.vercel.app/categories"
-      );
+      const res = await dataFetching("https://duaruqyah-server.vercel.app/categories");
       setCategories(res);
     };
     data();
@@ -47,20 +45,13 @@ const Categories = () => {
           placeholder="Search by Dua Name"
         />
         <span className="p-2.5  absolute left-1 top-1/2 -translate-y-1/2">
-          <Image
-            src="../icons/search.svg"
-            alt="search"
-            width={24}
-            height={24}
-          />
+          <Image src="/icons/search.svg" alt="search" width={24} height={24} />
         </span>
       </div>
       <div className="space-y-3 px-3 h-[calc(100%-153px)] overflow-y-auto">
         {searchCategories ? (
           <div>
-            <p className="text-title font-medium text-sm text-start mb-5">
-              Search Results:
-            </p>
+            <p className="text-title font-medium text-sm text-start mb-5">Search Results:</p>
             {searchCategories?.length === 0 ? (
               <div className="mt-4">
                 <div className="flex flex-col gap-y-10 items-center justify-center h-[50vh]">

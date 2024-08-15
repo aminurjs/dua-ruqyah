@@ -11,9 +11,7 @@ const Navbar = () => {
           <div className="inline-block xl:hidden">
             <CatSlide />
           </div>
-          <h1 className="text-dark text-2xl font-semibold font-poppins">
-            Dua Page
-          </h1>
+          <h1 className="text-dark text-2xl font-semibold font-poppins">Dua Page</h1>
         </div>
         <div className="hidden sm:block">
           <div className="relative w-48 lg:w-72">
@@ -23,24 +21,14 @@ const Navbar = () => {
               placeholder="Search by Dua Name"
             />
             <button className="px-4 py-1.5 lg:py-2.5 bg-[#F3F4F6] rounded-md absolute right-1 top-1/2 -translate-y-1/2">
-              <Image
-                src="./icons/search.svg"
-                alt="search"
-                width={24}
-                height={24}
-              />
+              <Image src="/icons/search.svg" alt="search" width={24} height={24} />
             </button>
           </div>
         </div>
       </div>
       <div className="xl:w-1/5 flex justify-end items-center">
         <button className="flex gap-1 justify-center items-center">
-          <Image
-            src="./icons/profile.svg"
-            alt="profile"
-            width={45}
-            height={45}
-          />
+          <Image src="/icons/profile.svg" alt="profile" width={45} height={45} />
           <ChevronDown className="h-5 w-5 text-dark" />
         </button>
         <SettingSlide />

@@ -3,9 +3,7 @@ import Image from "next/image";
 import Audio from "./Audio";
 
 const DuaFull = async ({ subcatId }) => {
-  const data = await dataFetching(
-    `https://duaruqyah-server.vercel.app/duas?subcat_id=${subcatId}`
-  );
+  const data = await dataFetching(`https://duaruqyah-server.vercel.app/duas?subcat_id=${subcatId}`);
   return (
     <>
       {data.map((item) => (
@@ -22,19 +20,15 @@ const DuaFull = async ({ subcatId }) => {
             />
             <h2 className="font-medium text-title">{item.dua_name_en}</h2>
           </div>
-          {item.top_en && (
-            <p className="text-lg leading-8 to-black my-5">{item.top_en}</p>
-          )}
+          {item.top_en && <p className="text-lg leading-8 to-black my-5">{item.top_en}</p>}
           {item.clean_arabic && (
-            <p className="text-right text-2xl leading-loose to-black mb-5">
-              {item.clean_arabic}
-            </p>
+            <p className="text-right text-2xl leading-loose to-black mb-5">{item.clean_arabic}</p>
           )}
-          {item.dua_arabic && (
+          {/* {item.dua_arabic && (
             <p className="text-right text-2xl leading-loose to-black mb-5">
               {item.dua_arabic}
             </p>
-          )}
+          )} */}
           {item.transliteration_en && (
             <p className="italic text-lg leading-8 to-black mb-5">
               <span className="font-medium">Transliteration: </span>
