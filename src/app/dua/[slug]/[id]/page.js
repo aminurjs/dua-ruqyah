@@ -1,10 +1,17 @@
 import DuaFull from "@/components/DuaFull";
-import { dataFetching } from "@/lib/utils";
+import { connectToDatabase } from "@/lib/mongodb";
 
 const Duas = async ({ params }) => {
-  const data = await dataFetching(
-    `https://duaruqyah-server.vercel.app/subcategories?cat_id=${params.id || 1}`
-  );
+  const subcatId = parseInt(params.id, 10);
+
+  // Function to fetch data from MongoDB
+  async function fetchSubcategories(cat_id) {
+    const { db } = await connectToDatabase();
+    const subcategoriesCollection = db.collection("subcategories");
+    const subcategories = await subcategoriesCollection.find({ cat_id }).toArray();
+    return subcategories;
+  }
+  const data = await fetchSubcategories(subcatId);
   return (
     <div className="h-[calc(100vh-160px)] xl:h-[calc(100vh-95px)] overflow-y-auto w-full scroll-smooth transition-all duration-500 ease-in-out">
       {data.map((item) => (

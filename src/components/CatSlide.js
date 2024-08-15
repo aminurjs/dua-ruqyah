@@ -3,7 +3,7 @@
 import { dataFetching } from "@/lib/utils";
 import Image from "next/image";
 import Category from "./Category";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import "./categories.css";
 import CatLoading from "./CatLoading";
 
@@ -24,15 +24,13 @@ const CatSlide = () => {
   };
   useEffect(() => {
     const data = async () => {
-      const res = await dataFetching("https://duaruqyah-server.vercel.app/categories");
+      const res = await dataFetching("/api/categories");
       setCategories(res);
     };
     data();
   }, []);
   const subCat = async (id) => {
-    const data = await dataFetching(
-      `https://duaruqyah-server.vercel.app/subcategories?cat_id=${id}`
-    );
+    const data = await dataFetching(`/api/subcategories?cat_id=${id}`);
     setSubcategories(data);
   };
   const handleSearch = (e) => {
