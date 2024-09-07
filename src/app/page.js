@@ -1,7 +1,7 @@
-import { redirect } from "next/navigation";
+import React from "react";
 
-const page = () => {
-  return redirect("/dua/dua's-importance/1");
+const Home = () => {
+  return <div>Home</div>;
 };
 
-export default page;
+export default Home;
