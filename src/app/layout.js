@@ -31,7 +31,7 @@ export default function RootLayout({ children }) {
           disableTransitionOnChange
         >
           <Context>
-            <main className="relative pt-5 px-5 lg:px-10 h-screen">
+            <main className="relative pt-5 px-5 lg:px-10 h-screen dark:bg-dark-1">
               <div className="h-full flex gap-8 items-start flex-col xl:flex-row">
                 <div className="h-full w-24 hidden xl:block">
                   <Sidebar />
@@ -39,10 +39,10 @@ export default function RootLayout({ children }) {
                 <div className="flex-1 w-full xl:w-[calc(100%-96px)] h-full">
                   <Navbar />
 
-                  <div className="h-[calc(100%-80px)] flex gap-8">
+                  <div className="h-[calc(100%-60px)] flex gap-8">
                     <div className="w-full 2xl:w-4/5 flex gap-8 h-full">
                       <Categories />
-                      <div className="w-full lg:w-2/3">{children}</div>
+                      <div className="w-full h-full lg:w-2/3">{children}</div>
                     </div>
                     <div className="hidden 2xl:block w-1/5 h-full">
                       {" "}
@@ -51,7 +51,7 @@ export default function RootLayout({ children }) {
                   </div>
                 </div>
               </div>
-              <div className="absolute left-0 bottom-0 w-full block xl:hidden bg-primary bg-white rounded-t-3xl h-20">
+              <div className="absolute left-0 bottom-0 w-full block xl:hidden bg-primary bg-white dark:bg-dark-2 rounded-t-3xl h-16">
                 <TabMenuB />
               </div>
               <Toaster />

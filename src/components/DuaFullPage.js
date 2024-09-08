@@ -81,7 +81,7 @@ ${window.location.href}
   return (
     <div
       id={`section-${item.subcat_id}-dua-${item.dua_id}`}
-      className="rounded-xl bg-white p-6 my-5"
+      className="rounded-xl bg-white dark:bg-dark-2 p-6 my-5"
     >
       <div className="flex items-center gap-3">
         <Image

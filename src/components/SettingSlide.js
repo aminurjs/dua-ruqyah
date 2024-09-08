@@ -13,7 +13,7 @@ const SettingSlide = () => {
           width={30}
         />
       </SheetTrigger>
-      <SheetContent className=" rounded-l-3xl">
+      <SheetContent className=" rounded-l-3xl dark:bg-dark-2">
         <Settings />
       </SheetContent>
     </Sheet>

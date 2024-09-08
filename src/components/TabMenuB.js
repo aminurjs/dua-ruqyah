@@ -14,7 +14,7 @@ const TabMenuB = () => {
         {icons.map((icon) => (
           <span
             onClick={() => showUnAvailableToast(toast)}
-            className="bg-icon-bg rounded-full p-2 cursor-pointer"
+            className="bg-icon-bg dark:bg-dark-1 rounded-full p-2 cursor-pointer"
             href="#"
             key={icon}
           >

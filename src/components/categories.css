@@ -1,4 +1,4 @@
-/* width */
+/* Default scrollbar styling */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -17,4 +17,12 @@
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #1fa45b;
+}
+
+/* Hide scrollbar on mobile and tablet */
+@media (max-width: 1024px) {
+  /* Hide scrollbar for all browsers */
+  ::-webkit-scrollbar {
+    display: none;
+  }
 }

@@ -9,7 +9,7 @@ const SubCat = ({ subCat, duasCat, duas, cat_name_en }) => {
       <div onClick={() => duasCat(subCat.subcat_id)}>
         <a
           href={`/?cat=${subCat.cat_id}#section-${subCat.subcat_id}`}
-          className="text-dark block font-semibold text-sm cursor-pointer ml-4 py-2 text-left"
+          className="text-dark dark:text-white block font-semibold text-sm cursor-pointer ml-4 py-2 text-left"
         >
           {language === "english" ? subCat?.subcat_name_en : subCat?.subcat_name_bn}
         </a>

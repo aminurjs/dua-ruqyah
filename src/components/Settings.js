@@ -68,8 +68,8 @@ const Settings = () => {
   ];
 
   return (
-    <div className=" bg-white 2xl:max-h-[930px] rounded-3xl h-full 2xl:h-[calc(100%-20px)] 2xl:px-4 pt-6 pb-5  overflow-y-auto">
-      <h2 className="text-xl font-bold text-center text-dark mb-6">
+    <div className=" bg-white dark:bg-dark-2 2xl:max-h-[930px] rounded-3xl h-full 2xl:h-[calc(100%-20px)] 2xl:px-4 pt-6 pb-5  overflow-y-auto">
+      <h2 className="text-xl font-bold text-center text-dark dark:text-white mb-6">
         {isMounted ? <p>{language === "english" ? "Setting" : "সেটিংস"}</p> : <p>Settings</p>}
       </h2>
       <div className="space-y-3">
@@ -77,22 +77,25 @@ const Settings = () => {
           <>
             {" "}
             {settings.map((setting) => (
-              <div key={setting.id} className="border border-gray-200 rounded-lg">
+              <div
+                key={setting.id}
+                className="border border-gray-200 dark:border-gray-700 rounded-lg"
+              >
                 <button
                   onClick={() => handleOpenIndex(setting.id)}
                   className={`flex gap-2 items-center pl-2 border-l-[5px] ${
                     setting.id === openIndex
-                      ? "border-primary text-primary"
-                      : "border-transparent text-gray-1"
-                  } pr-4 py-2.5 bg-dua-bg rounded-lg focus:rounded-l-sm w-full`}
+                      ? "border-primary text-primary dark:bg-[#314A66]"
+                      : "border-transparent text-gray-1 dark:text-gray-200  bg-dua-bg dark:bg-[#182C43]"
+                  } pr-4 py-2.5 rounded-lg focus:rounded-l-sm w-full dark:hover:bg-[#314A66]`}
                 >
-                  <span className="bg-[#E8F0F5] rounded-full p-2">
+                  <span className="bg-[#E8F0F5] dark:bg-dark-1 rounded-full p-2">
                     <Image src={setting.icon} alt={setting.name} height={24} width={24} />
                   </span>
                   <span>{setting.name}</span>
                 </button>
                 {setting.id === 1 && openIndex === 1 && (
-                  <div className="py-4 rounded-b-lg">
+                  <div className="py-4 rounded-b-lg bg-dua-bg dark:bg-[#182C43]">
                     <div className="flex flex-row gap-x-3 mx-4 justify-center">
                       <button
                         onClick={() => {
@@ -101,7 +104,7 @@ const Settings = () => {
                         className={` ${
                           language === "english"
                             ? "bg-primary text-white"
-                            : "text-black dark:text-[#e4e4e4] border border-solid border-[#cccdcf]"
+                            : "text-black dark:text-[#e4e4e4] border border-solid border-[#cccdcf] dark:bg-[#314A66] dark:border-[#314A66]"
                         }  rounded-md w-29 h-10 text-sm xs:w-full sm:w-full`}
                       >
                         English
@@ -113,7 +116,7 @@ const Settings = () => {
                         className={` ${
                           language === "bangla"
                             ? "bg-primary text-white"
-                            : "text-black dark:text-[#e4e4e4] border border-solid border-[#cccdcf]"
+                            : "text-black dark:text-[#e4e4e4]  border border-solid border-[#cccdcf] dark:bg-[#314A66] dark:border-[#314A66]"
                         }  rounded-md w-29 h-10 text-sm xs:w-full sm:w-full`}
                       >
                         {isMounted ? <span>বাংলা</span> : <span>Bangla</span>}
@@ -122,7 +125,7 @@ const Settings = () => {
                   </div>
                 )}
                 {setting.id === 4 && openIndex === 4 && (
-                  <div class="px-4 pb-1 rounded-b-lg">
+                  <div class="px-4 pb-1 rounded-b-lg bg-dua-bg dark:bg-[#182C43]">
                     <div class=" flex flex-row justify-between">
                       <p class="mt-7 mb-4 text-title text-sm dark:text-dark-text">Night Mode</p>
                       <div class="mt-7 mb-4">
@@ -164,14 +167,17 @@ const Settings = () => {
           <>
             {" "}
             {fallbackSettings.map((setting) => (
-              <div key={setting.id} className="border border-gray-200 rounded-lg">
+              <div
+                key={setting.id}
+                className="border border-gray-200 dark:border-gray-700 rounded-lg"
+              >
                 <button
                   onClick={() => handleOpenIndex(setting.id)}
-                  className={`flex text-gray-1 gap-2 items-center pl-2 border-l-[5px] ${
+                  className={`flex text-gray-1 dark:text-gray-200 gap-2 items-center pl-2 border-l-[5px] ${
                     setting.id === openIndex ? "border-primary" : "border-transparent"
-                  } pr-4 py-2.5 bg-dua-bg rounded-lg focus:rounded-l-sm w-full`}
+                  } pr-4 py-2.5 bg-dua-bg dark:bg-[#182C43] rounded-lg focus:rounded-l-sm w-full`}
                 >
-                  <span className="bg-[#E8F0F5] rounded-full p-2">
+                  <span className="bg-[#E8F0F5] dark:bg-dark-1 rounded-full p-2">
                     <Image src={setting.icon} alt={setting.name} height={24} width={24} />
                   </span>
                   <span>{setting.name}</span>

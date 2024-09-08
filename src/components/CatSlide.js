@@ -45,7 +45,7 @@ const CatSlide = () => {
       <SheetTrigger className="block 2xl:hidden">
         <Menu />
       </SheetTrigger>
-      <SheetContent side="left" className="p-0 m-0 rounded-r-3xl overflow-y-auto">
+      <SheetContent side="left" className="p-0 m-0 rounded-r-3xl overflow-y-auto dark:bg-dark-2">
         <SheetHeader>
           <div className="bg-primary p-4 ">
             <p className="text-white text-center">Categories</p>
@@ -59,7 +59,7 @@ const CatSlide = () => {
             type="text"
             name="search"
             onChange={handleSearch}
-            className="placeholder:text-[#868686] py-3 pr-4 pl-12 bg-white w-full focus:outline-none focus:border-primary border-2 border-gray-300 rounded-lg"
+            className="placeholder:text-[#868686] py-3 pr-4 pl-12 bg-white dark:bg-dark-1 w-full focus:outline-none focus:border-primary border-2 border-gray-300 dark:border-gray-700 rounded-lg"
             placeholder="Search by Dua Name"
           />
           <span className="p-2.5  absolute left-1 top-1/2 -translate-y-1/2">

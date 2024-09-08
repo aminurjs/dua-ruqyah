@@ -18,7 +18,7 @@ const DuasPage = ({ id = 1 }) => {
   }, [id]);
 
   return (
-    <div className="h-[calc(100vh-160px)] xl:h-[calc(100vh-95px)] overflow-y-auto w-full scroll-smooth transition-all duration-500 ease-in-out">
+    <div className="h-[calc(100vh-145px)] xl:h-[calc(100vh-95px)] overflow-y-auto w-full scroll-smooth transition-all duration-500 ease-in-out">
       {data.length ? (
         <>
           {" "}
@@ -26,7 +26,7 @@ const DuasPage = ({ id = 1 }) => {
             <div key={item.id}>
               <h1
                 id={`section-${item.subcat_id}`}
-                className="bg-white rounded-xl p-4 font-medium text-dark mb-5"
+                className="bg-white dark:bg-dark-2 rounded-xl p-4 font-medium text-dark dark:text-white mb-5"
               >
                 <span className="text-primary">
                   {language === "english" ? "Section: " : "পরিচ্ছেদঃ "}

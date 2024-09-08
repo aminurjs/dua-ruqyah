@@ -25,6 +25,8 @@ module.exports = {
         "dua-bg": "#f7f8fa",
         "icon-bg": "#e8f0f5",
         "gray-1": "#868686",
+        "dark-1": "#122337",
+        "dark-2": "#223449",
         dark: "#393939",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

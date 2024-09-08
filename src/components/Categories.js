@@ -38,7 +38,7 @@ const Categories = () => {
     setSearchCategories(searched);
   };
   return (
-    <div className="hidden lg:block lg:rounded-lg bg-white lg:w-1/3 mb-20 xl:mb-3 ">
+    <div className="hidden lg:block lg:rounded-lg bg-white dark:bg-dark-2 lg:w-1/3 mb-20 xl:mb-3 ">
       <div className="bg-primary lg:rounded-t-lg p-4 ">
         <span className="text-white text-center">
           {isMounted ? (
@@ -53,7 +53,7 @@ const Categories = () => {
           type="text"
           name="search"
           onChange={handleSearch}
-          className="placeholder:text-[#868686] py-3 pr-4 pl-12 bg-white w-full focus:outline-none focus:border-primary border-2 border-gray-300 rounded-lg"
+          className="placeholder:text-gray-500 py-3 pr-4 pl-12 bg-white dark:bg-dark-1 w-full focus:outline-none focus:border-primary border-2 border-gray-300 dark:border-gray-700 rounded-lg"
           placeholder="Search by Dua Name"
         />
         <span className="p-2.5  absolute left-1 top-1/2 -translate-y-1/2">
