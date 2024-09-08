@@ -105,7 +105,7 @@ const Settings = () => {
                           language === "english"
                             ? "bg-primary text-white"
                             : "text-black dark:text-[#e4e4e4] border border-solid border-[#cccdcf] dark:bg-[#314A66] dark:border-[#314A66]"
-                        }  rounded-md w-29 h-10 text-sm xs:w-full sm:w-full`}
+                        }  rounded-md w-29 h-10 text-sm w-full`}
                       >
                         English
                       </button>
@@ -117,7 +117,7 @@ const Settings = () => {
                           language === "bangla"
                             ? "bg-primary text-white"
                             : "text-black dark:text-[#e4e4e4]  border border-solid border-[#cccdcf] dark:bg-[#314A66] dark:border-[#314A66]"
-                        }  rounded-md w-29 h-10 text-sm xs:w-full sm:w-full`}
+                        }  rounded-md w-29 h-10 text-sm w-full`}
                       >
                         {isMounted ? <span>বাংলা</span> : <span>Bangla</span>}
                       </button>
