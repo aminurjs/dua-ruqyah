@@ -1,10 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
+import Cookies from "js-cookie";
 
-// Initial state, check if language is stored in localStorage, otherwise default to "english"
 const initialState = {
-  language: localStorage.getItem("language") || "english",
+  language: Cookies.get("language") || "english",
 };
-console.log(initialState);
 const languageSlice = createSlice({
   name: "languageSlice",
   initialState,
@@ -12,7 +11,7 @@ const languageSlice = createSlice({
     // Action to set the language both in state and localStorage
     changeLanguage: (state, { payload }) => {
       state.language = payload.language;
-      localStorage.setItem("language", payload.language);
+      Cookies.set("language", payload.language);
     },
   },
 });
