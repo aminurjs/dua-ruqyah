@@ -1,4 +1,3 @@
-import { dataFetching } from "@/lib/utils";
 import Image from "next/image";
 import Audio from "./Audio";
 import { connectToDatabase } from "@/lib/mongodb";
@@ -10,7 +9,7 @@ async function fetchDuas(subcatId) {
   return duas;
 }
 
-const DuaFull = async ({ subcatId }) => {
+const DuaFull = async ({ subcatId, language }) => {
   const data = await fetchDuas(subcatId);
   return (
     <>
@@ -27,9 +26,15 @@ const DuaFull = async ({ subcatId }) => {
               height={35}
               width={35}
             />
-            <h2 className="font-medium text-title">{item.dua_name_en}</h2>
+            <h2 className="font-medium text-title">
+              {language === "english" ? item.dua_name_en : item.dua_name_bn}
+            </h2>
           </div>
-          {item.top_en && <p className="text-lg leading-8 to-black my-5">{item.top_en}</p>}
+          {item.top_en && (
+            <p className="text-lg leading-8 to-black my-5">
+              {language === "english" ? item.top_en : item.top_bn}
+            </p>
+          )}
           {item.clean_arabic && (
             <p className="text-right text-2xl leading-loose to-black mb-5">{item.clean_arabic}</p>
           )}
@@ -40,20 +45,26 @@ const DuaFull = async ({ subcatId }) => {
           )} */}
           {item.transliteration_en && (
             <p className="italic text-lg leading-8 to-black mb-5">
-              <span className="font-medium">Transliteration: </span>
-              {item.transliteration_en}
+              <span className="font-medium">
+                {language === "english" ? "Transliteration: " : "উচ্চারণঃ "}{" "}
+              </span>
+              {language === "english" ? item.transliteration_en : item.transliteration_bn}{" "}
             </p>
           )}
           {item.translation_en && (
             <p className="text-lg leading-8 to-dark mb-5">
-              <span className="font-medium">Translation: </span>
-              {item.translation_en}
+              <span className="font-medium">
+                {language === "english" ? "Translation: " : "অনুবাদঃ "}{" "}
+              </span>
+              {language === "english" ? item.translation_en : item.translation_bn}
             </p>
           )}
           {item.refference_en && (
             <p className="text-lg leading-8 to-black mb-5">
-              <span className="block text-title">Reference:: </span>
-              {item.refference_en}
+              <span className="block text-title">
+                {language === "english" ? "Reference: " : "রেফারেন্স: "}
+              </span>
+              {language === "english" ? item.refference_en : item.refference_bn}
             </p>
           )}
           <div className="flex justify-end items-center">

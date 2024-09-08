@@ -5,10 +5,12 @@ import SubCat from "./SubCat";
 import { useRef, useState } from "react";
 import { dataFetching } from "@/lib/utils";
 import Link from "next/link";
+import useLanguage from "@/hooks/useLanguage";
 
 const Category = ({ category, subcategories, subCat }) => {
   const [duas, setDuas] = useState([]);
   const catRef = useRef(null);
+  const { language } = useLanguage();
 
   const duasCat = async (id) => {
     const data = await dataFetching(`/api/duas?subcat_id=${id}`);
@@ -19,12 +21,13 @@ const Category = ({ category, subcategories, subCat }) => {
       catRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
+
   return (
     <div>
       <div ref={catRef}>
         <Link
           key={category.cat_id}
-          href={`/dua/${category.cat_name_en.toLowerCase().replace(/ /gi, "-")}/${category.cat_id}`}
+          href={`/?cat=${category.cat_id}`}
           onClick={() => {
             subCat(category.cat_id);
             scrollToTop();
@@ -40,12 +43,19 @@ const Category = ({ category, subcategories, subCat }) => {
               />
             </span>
             <div className="flex-1">
-              <h2 className="text-dark font-semibold">{category.cat_name_en}</h2>
-              <p className="text-gray-1 text-sm mt-1">Subcategory: {category.no_of_subcat}</p>
+              <h2 className="text-dark font-semibold">
+                {language === "english" ? category.cat_name_en : category.cat_name_bn}
+              </h2>
+              <p className="text-gray-1 text-sm mt-1">
+                {language === "english" ? "Subcategory" : "সাব-ক্যাটেগরি"}: {category.no_of_subcat}
+              </p>
             </div>
             <div className="text-center">
               <h2 className="text-dark font-semibold">{category.no_of_dua}</h2>
-              <p className="text-gray-1 text-sm mt-1">Duas</p>
+              <p className="text-gray-1 text-sm mt-1">
+                {" "}
+                {language === "english" ? "Duas" : "দুয়া"}
+              </p>
             </div>
           </div>
         </Link>

@@ -1,7 +1,12 @@
-import React from "react";
+import DuasPage from "@/components/DuaPage";
 
-const Home = () => {
-  return <div>Home</div>;
+const Home = ({ searchParams }) => {
+  const { cat } = searchParams;
+  return (
+    <div>
+      <DuasPage id={cat} />
+    </div>
+  );
 };
 
 export default Home;
