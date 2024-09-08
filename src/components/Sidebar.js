@@ -1,8 +1,13 @@
+"use client";
+
+import { useToast } from "@/hooks/use-toast";
 import Image from "next/image";
-import Link from "next/link";
+import { showUnAvailableToast } from "./toast";
 export const icons = ["home", "alldua", "memorize", "bookmark", "ruqyah", "dua-info", "books"];
 
 const Sidebar = () => {
+  const { toast } = useToast();
+
   return (
     <div className="flex mb-5 items-center justify-between flex-col h-[calc(100%-20px)] max-h-[930px] bg-white rounded-3xl p-5 overflow-y-auto">
       <div>
@@ -10,14 +15,18 @@ const Sidebar = () => {
       </div>
       <div className="flex gap-6 items-center flex-col">
         {icons.map((icon) => (
-          <Link className="bg-icon-bg rounded-full p-2" href="#" key={icon}>
+          <span
+            onClick={() => showUnAvailableToast(toast)}
+            className="bg-icon-bg rounded-full p-2 cursor-pointer"
+            key={icon}
+          >
             <Image
               src={`https://duaruqyah.com/assets/nav/${icon}.svg`}
               alt={icon}
               width={20}
               height={20}
             />
-          </Link>
+          </span>
         ))}
       </div>
       <div className="bg-primary p-3 rounded-lg">
