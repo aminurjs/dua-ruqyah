@@ -12,7 +12,13 @@ const Categories = () => {
   const [categories, setCategories] = useState([]);
   const [subcategories, setSubcategories] = useState([]);
   const [searchCategories, setSearchCategories] = useState(null);
+  const [isMounted, setIsMounted] = useState(false);
   const { language } = useLanguage();
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   useEffect(() => {
     const data = async () => {
       const res = await dataFetching("/api/categories");
@@ -34,9 +40,13 @@ const Categories = () => {
   return (
     <div className="hidden lg:block lg:rounded-lg bg-white lg:w-1/3 mb-20 xl:mb-3 ">
       <div className="bg-primary lg:rounded-t-lg p-4 ">
-        <p className="text-white text-center">
-          {language === "english" ? "Categories" : "ক্যাটেগরি"}
-        </p>
+        <span className="text-white text-center">
+          {isMounted ? (
+            <p>{language === "bangla" ? "ক্যাটেগরি" : "Categories"}</p>
+          ) : (
+            <p>Categories</p>
+          )}
+        </span>
       </div>
       <div className="relative mx-3 py-4">
         <input
