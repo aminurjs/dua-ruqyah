@@ -2,11 +2,13 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import useLanguage from "@/hooks/useLanguage";
+import { useTheme } from "next-themes";
 
 const Settings = () => {
   const [openIndex, setOpenIndex] = useState(1);
   const [isMounted, setIsMounted] = useState(false);
   const { language, setLanguage } = useLanguage();
+  const { setTheme, theme } = useTheme();
 
   const handleRefresh = () => {
     // router.push("/");
@@ -124,23 +126,33 @@ const Settings = () => {
                     <div class=" flex flex-row justify-between">
                       <p class="mt-7 mb-4 text-title text-sm dark:text-dark-text">Night Mode</p>
                       <div class="mt-7 mb-4">
-                        <button
-                          class="bg-gray-300
+                        {theme === "light" ? (
+                          <button
+                            onClick={() => setTheme("dark")}
+                            class="bg-gray-300
           relative inline-flex h-5 w-10 z-[1] shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75"
-                          id="headlessui-switch-:rb9:"
-                          role="switch"
-                          type="button"
-                          tabindex="0"
-                          aria-checked="false"
-                          data-headlessui-state=""
-                        >
-                          <span class="sr-only">Use setting</span>
-                          <span
-                            aria-hidden="true"
-                            class="translate-x-0
+                          >
+                            <span class="sr-only">Use setting</span>
+                            <span
+                              aria-hidden="true"
+                              class="translate-x-0
             pointer-events-none inline-block h-4 w-4 transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out"
-                          ></span>
-                        </button>
+                            ></span>
+                          </button>
+                        ) : (
+                          <button
+                            onClick={() => setTheme("light")}
+                            class="bg-primary
+          relative inline-flex h-5 w-10 z-[1] shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75"
+                          >
+                            <span class="sr-only">Use setting</span>
+                            <span
+                              aria-hidden="true"
+                              class="translate-x-5
+            pointer-events-none inline-block h-4 w-4 transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out"
+                            ></span>
+                          </button>
+                        )}
                       </div>
                     </div>
                   </div>
